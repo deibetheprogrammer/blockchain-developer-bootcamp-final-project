@@ -101,10 +101,6 @@ loBet.onclick = async () => {
   var web3 = new Web3(window.ethereum)
   const networkId = await web3.eth.net.getId();
 
-  // console.log(networkId);
-  // console.log(lotjson.networks[networkId].address);
-  // console.log(await selectedAddress());
-
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
   
@@ -115,8 +111,8 @@ loBet.onclick = async () => {
   getInfo();
 }
 
-const loGains = document.getElementById("lo-prize");
-loGains.onclick = async () => {
+const loPrize = document.getElementById("lo-prize");
+loPrize.onclick = async () => {
 
   if (!window.ethereum) {
     alert("No MetaMask detected");
