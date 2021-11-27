@@ -10,6 +10,25 @@
       "inputs": [
         {
           "indexed": false,
+          "internalType": "address",
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_gains",
+          "type": "uint256"
+        }
+      ],
+      "name": "GainsCollected",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
           "internalType": "uint256",
           "name": "_bet",
           "type": "uint256"
@@ -95,6 +114,12 @@
           "internalType": "address",
           "name": "_winner",
           "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_pot",
+          "type": "uint256"
         }
       ],
       "name": "PotCollected",
@@ -171,6 +196,13 @@
     {
       "inputs": [],
       "name": "requestPot",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "requestGains",
       "outputs": [],
       "stateMutability": "nonpayable",
       "type": "function"
@@ -314,11 +346,49 @@
           ],
           "name": "PotCollected",
           "type": "event"
+        },
+        "0x3932647e73520884fb96b98040266a9205f29c8c0924c0860e48883e9cc1b70e": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_owner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_gains",
+              "type": "uint256"
+            }
+          ],
+          "name": "GainsCollected",
+          "type": "event"
+        },
+        "0xf2778f9855e80161e8fa3449ab8e06000b77290d266dbe472e6727700bb5a99d": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_pot",
+              "type": "uint256"
+            }
+          ],
+          "name": "PotCollected",
+          "type": "event"
         }
       },
       "links": {},
-      "address": "0xCd7e684F02f67FF99050FAf0982b3875A5D4B948",
-      "transactionHash": "0x9b5389b13b64ab8ca6caec16961855eeb6db1784d6952cf5c5b838e9d5706f82"
+      "address": "0x13866f2f12e68937Cb1f845fD71AA669f8645fCD",
+      "transactionHash": "0x1a1d906f2979997c404c011c66b728e33f567bab107233d9168044662752f765"
     },
     "5777": {
       "events": {
