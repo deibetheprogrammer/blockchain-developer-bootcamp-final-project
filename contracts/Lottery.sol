@@ -15,11 +15,12 @@ contract Lottery is Ownable, VRFConsumerBase {
     // STATE VARIABLES
 
     address vrfCoordinator = 0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B;
-    bytes32 private s_keyHash = 0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311;
+    bytes32 private s_keyHash =
+        0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311;
     uint256 private s_fee = 1e17;
     address link = 0x01BE23585060835E02B77ef475b0Cc51aA1e0709;
 
-    uint gains;
+    uint256 gains;
     uint256 lotteryCount;
     address participant1;
     address participant2;
@@ -42,9 +43,9 @@ contract Lottery is Ownable, VRFConsumerBase {
 
     event LogWinnerElected(uint256 _num, address _winner, State _state);
 
-    event PotCollected(address _winner, uint _pot);
+    event PotCollected(address _winner, uint256 _pot);
 
-    event GainsCollected(address _owner, uint _gains);
+    event GainsCollected(address _owner, uint256 _gains);
 
     // MODIFIERS
 
@@ -144,22 +145,19 @@ contract Lottery is Ownable, VRFConsumerBase {
         emit PotCollected(msg.sender, 18e8);
     }
 
-     /**
+    /**
     @notice Requests the contract's gains
      */
 
-    function requestGains()
-        public
-        onlyOwner
-    {
-        uint tgains = gains;
-        gains = 0;
-        (bool sent, ) = msg.sender.call{value: tgains }("");
-        require(sent, "Failed to send Ether");
-
+    function requestGains() public onlyOwner {
+        uint256 tgains = gains;
+        if (tgains > 0) {
+            gains = 0;
+            (bool sent, ) = msg.sender.call{value: tgains}("");
+            require(sent, "Failed to send Ether");
+        }
         emit GainsCollected(msg.sender, tgains);
     }
-
 
     /**
     @notice Requests the contracts current state
