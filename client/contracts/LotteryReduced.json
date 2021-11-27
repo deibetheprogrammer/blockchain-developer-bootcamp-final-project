@@ -1,0 +1,426 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_bet",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_participant",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum Lottery.State",
+          "name": "_state",
+          "type": "uint8"
+        }
+      ],
+      "name": "LogBetPlaced",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "enum Lottery.State",
+          "name": "_state",
+          "type": "uint8"
+        }
+      ],
+      "name": "LogRandomNumRequest",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "_num",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_winner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum Lottery.State",
+          "name": "_state",
+          "type": "uint8"
+        }
+      ],
+      "name": "LogWinnerElected",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "address",
+          "name": "_winner",
+          "type": "address"
+        }
+      ],
+      "name": "PotCollected",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "randomness",
+          "type": "uint256"
+        }
+      ],
+      "name": "rawFulfillRandomness",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "placeBet",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function",
+      "payable": true
+    },
+    {
+      "inputs": [],
+      "name": "requestPot",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "requestData",
+      "outputs": [
+        {
+          "internalType": "enum Lottery.State",
+          "name": "",
+          "type": "uint8"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function",
+      "constant": true
+    },
+    {
+      "inputs": [],
+      "name": "destroyContract",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "networks": {
+    "4": {
+      "events": {
+        "0x146db27ebc88663b66165a843f588a4baf7f3613098f5348f2bca50be99094d7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_bet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogBetPlaced",
+          "type": "event"
+        },
+        "0x74a316a0f74bd85657fa26206c6075f8ff3fd4b9ec744180da0e6159e56a8455": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogRandomNumRequest",
+          "type": "event"
+        },
+        "0x80a063fc06527938e47c9161cb95ad68db892e7012640a546dd82b65f4aa570c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_num",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogWinnerElected",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x485984dfa0c5f10a5801caaee033ac37b61f04e3934d6d4bb4c652efee3b18df": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_winner",
+              "type": "address"
+            }
+          ],
+          "name": "PotCollected",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xCd7e684F02f67FF99050FAf0982b3875A5D4B948",
+      "transactionHash": "0x9b5389b13b64ab8ca6caec16961855eeb6db1784d6952cf5c5b838e9d5706f82"
+    },
+    "5777": {
+      "events": {
+        "0x146db27ebc88663b66165a843f588a4baf7f3613098f5348f2bca50be99094d7": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_bet",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_participant",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogBetPlaced",
+          "type": "event"
+        },
+        "0x74a316a0f74bd85657fa26206c6075f8ff3fd4b9ec744180da0e6159e56a8455": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogRandomNumRequest",
+          "type": "event"
+        },
+        "0x80a063fc06527938e47c9161cb95ad68db892e7012640a546dd82b65f4aa570c": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "_num",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_winner",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "enum Lottery.State",
+              "name": "_state",
+              "type": "uint8"
+            }
+          ],
+          "name": "LogWinnerElected",
+          "type": "event"
+        },
+        "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address"
+            },
+            {
+              "indexed": true,
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "name": "OwnershipTransferred",
+          "type": "event"
+        },
+        "0x485984dfa0c5f10a5801caaee033ac37b61f04e3934d6d4bb4c652efee3b18df": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "_winner",
+              "type": "address"
+            }
+          ],
+          "name": "PotCollected",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0xd73163532D53eA8521F954d56Db5669327620047",
+      "transactionHash": "0x457bcc12ad86e361de9e0a4d4312508e303b1c349d5290e251f613174a3bf8ca"
+    }
+  }
+}

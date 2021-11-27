@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Lottery</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <h1 Style="color:rgb(255, 123, 0)">Simple Lottery</h1>
+</head>
+
+<body>
+    <div class="contents">
+
+        <div class="col-md-12" style="background-color:rgb(241, 199, 60); text-align: center; height:100%;">
+        
+            <button class="roundbutton" id="lo-bet" style="top: 5%; left:15%; position: absolute">
+                Place bet
+            </button>
+
+            <button class="roundbutton" id="lo-prize" style="top: 5%; left:85%; position: absolute">
+                Claim prize
+            </button>
+
+            <button class="roundbutton" id="lo-gains" style="top: 15%; left:85%; position: absolute">
+                Claim gains
+            </button>
+
+            <h3 id="lo-lotteryCount"></h3>
+            <h3 id="lo-status"></h3>
+            <h3 id="lo-betPrice" >Bet price: 1 gwei</h3>
+            <h3 id="lo-participant1"></h3>
+            <h3 id="lo-participant2"></h3>
+            <h3 id="lo-winner"></h3>
+
+        
+        </div>
+
+    </div>
+
+    <script src="dapp.js"></script>
+
+</body>
+
+</html>
