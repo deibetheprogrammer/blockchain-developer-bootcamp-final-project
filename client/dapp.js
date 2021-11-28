@@ -9,19 +9,35 @@ async function loadJSON() {
 loadJSON();
 
 async function selectedAddress() {
-  const accounts = await ethereum.request({
-    method:
-      'eth_requestAccounts'
-  });
-  if (typeof accounts !== 'undefined') {
-    return accounts[0].toLowerCase();
+  if (typeof window.ethereum !== 'undefined') {
+
+    var accounts = await ethereum.request({
+      method:
+        'eth_accounts'
+    });
+
+    if (accounts.length == 0) {
+      accounts = await ethereum.request({
+        method:
+          'eth_requestAccounts'
+      });
+    }
+
+    if (accounts.length !== 0) {
+      await setHandlers();
+      return accounts[0].toLowerCase();
+    }
   }
+  alert("Need to accept connection for this contract function");
   return "";
 }
 
-ethereum.on('accountsChanged', function (accounts) {
-  getInfo();
-})
+async function setHandlers() {
+  ethereum.on('accountsChanged', function (accounts) {
+    getInfo();
+  })
+  ethereum.on('chainChanged', (_chainId) => window.location.reload());
+}
 
 window.addEventListener('load', function () {
   if (!window.ethereum) {
@@ -33,7 +49,7 @@ window.addEventListener('load', function () {
 
 async function getInfo() {
   var SCResponse;
-  
+
   const participant1 = document.getElementById("lo-participant1");
   const participant2 = document.getElementById("lo-participant2");
   const lotteryCount = document.getElementById("lo-lotteryCount");
@@ -58,12 +74,12 @@ async function getInfo() {
   }
 
   document.getElementById("lo-participant1").innerHTML = "Participant 1: " + SCResponse[1];
-  document.getElementById("lo-participant2").innerHTML = "Participant 2: " +SCResponse[2];
-  document.getElementById("lo-lotteryCount").innerHTML = "Lottery #: " +SCResponse[4];
+  document.getElementById("lo-participant2").innerHTML = "Participant 2: " + SCResponse[2];
+  document.getElementById("lo-lotteryCount").innerHTML = "Lottery #: " + SCResponse[4];
   document.getElementById("lo-winner").innerHTML = "Winner: " + SCResponse[3];
-  
+
   let statusDisplay;
-  
+
   switch (parseInt(SCResponse[0])) {
     case 0:
       statusDisplay = "A lottery has started!";
@@ -80,11 +96,11 @@ async function getInfo() {
     case 4:
       statusDisplay = "Winner elected, claim your prize!";
       break;
-    
+
     default:
       statusDisplay = "You should not be seeing this ...."
       break;
-    
+
   }
   document.getElementById("lo-status").innerHTML = statusDisplay;
   return true;
@@ -103,10 +119,16 @@ loBet.onclick = async () => {
 
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
-  
-  await lottery.methods
-  .placeBet()
-  .send({ from: await selectedAddress(), value: 1e9 });
+
+  document.getElementById("lo-message").innerHTML = "placing bet ...";  
+  try {
+    await lottery.methods
+      .placeBet()
+      .send({ from: await selectedAddress(), value: 1e9 });
+  } catch (error) {
+    alert("Could not place bet");
+  }
+  document.getElementById("lo-message").innerHTML = "";
 
   getInfo();
 }
@@ -124,11 +146,18 @@ loPrize.onclick = async () => {
 
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
-  
-  await lottery.methods
-  .requestPot()
-  .send({ from: await selectedAddress() });
 
+  document.getElementById("lo-message").innerHTML = "claiming prize ...";
+
+  try {
+    await lottery.methods
+      .requestPot()
+      .send({ from: await selectedAddress() });
+  } catch (error) {
+    alert("Could not claim prize");
+  }
+
+  document.getElementById("lo-message").innerHTML = "";
   getInfo();
 }
 
@@ -145,10 +174,16 @@ loGains.onclick = async () => {
 
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
-  
-  await lottery.methods
-  .requestGains()
-  .send({ from: await selectedAddress() });
 
+  document.getElementById("lo-message").innerHTML = "claiming gains ...";
+  try {
+    await lottery.methods
+      .requestGains()
+      .send({ from: await selectedAddress() });
+  } catch (error) {
+    alert("Could not claim gains");
+  }
+
+  document.getElementById("lo-message").innerHTML = "";
   getInfo();
 }

@@ -80,57 +80,6 @@ contract("Lottery", function (accounts) {
   // The following tests verify functionality within the contract
   describe("Use cases", () => {
 
-  /* This test verifies that everything is in order when the first bet is placed:
-  correct values for state, participant1, participant2, winner and lotteryCount
-  */
-    it("should place a bet for the sender", async () => {
-      await instance.placeBet({value: 1e9, from: alice });
-
-      const result = await instance.requestData.call();
-
-      assert.equal(
-        result[0],
-        1,
-        "Lottery state should be oneBet",
-      );
-      assert.equal(
-        result[1],
-        alice,
-        "Participant1 should be the sender",
-      );
-      assert.equal(
-        result[2],
-        emptyAddress,
-        'Participant2 should be empty',
-      );
-      assert.equal(
-        result[3],
-        emptyAddress,
-        'Winner should be empty',
-      );
-      assert.equal(
-        result[4],
-        1,
-        "LotteryCount should be 1",
-      );
-    });
-
-    // This test verifies that an event is emitted when a bet is placed
-    it("should emit a LogBetPlaced event when a bet is placed", async () => {
-      let eventEmitted = false;
-      const tx = await instance.placeBet({value:1e9, from: alice });
-
-      if (tx.logs[0].event == "LogBetPlaced") {
-        eventEmitted = true;
-      }
-
-      assert.equal(
-        eventEmitted,
-        true,
-        "Placing a bet should a emit a Bet Placed event",
-      );
-    });
-
     // This test verifies that an error occurs when not enough value is sent for a bet
     it("should error when not enough value is sent when placing a bet", async () => {
       await catchRevert(instance.placeBet({ from: bob, value: 0}));
