@@ -19,6 +19,8 @@ https://deibetheprogrammer.github.io
 - Run `npm install` in project root to install dependencies
 - Run `ganache-cli` on port `8545` for local tests
 - Add this local testnet to Metamask http://127.0.0.1:port/ with Chain Id 1337 (see line above for port), truffle develop uses 9545, ganache-cli uses by default port 8545
+- run `touch .rinkeby`
+- run `touch .secret`
 - `truffle migrate --network development`
 - `truffle console --network development`
 - Run tests in Truffle console: `test`
@@ -30,7 +32,7 @@ https://deibetheprogrammer.github.io
 - `npm install`
 - `npm start`
 - Open `http://127.0.0.1:8080`
-
+- Due to the use of Oracles, not all functionality can be tested on a local testnet
 ## Screencast link
 
 

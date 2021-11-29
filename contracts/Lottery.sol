@@ -8,7 +8,7 @@ pragma solidity 0.8.7;
  */
 
 //import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol";
-import "@OpenZeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 
 contract Lottery is Ownable, VRFConsumerBase {
