@@ -34,16 +34,17 @@ async function selectedAddress() {
 
 async function setHandlers() {
   ethereum.on('accountsChanged', function (accounts) {
-    getInfo();
+    window.location.reload();
   })
   ethereum.on('chainChanged', (_chainId) => window.location.reload());
 }
 
 window.addEventListener('load', function () {
-  if (!window.ethereum) {
+  if (typeof window.ethereum === 'undefined') {
     this.alert("You need to install Metamask!");
     return;
   }
+  setHandlers();
   getInfo();
 })
 
@@ -114,7 +115,7 @@ async function getInfo() {
 const loBet = document.getElementById("lo-bet");
 loBet.onclick = async () => {
 
-  if (!window.ethereum) {
+  if (typeof window.ethereum === 'undefined') {
     alert("No MetaMask detected");
     return;
   }
@@ -146,7 +147,7 @@ loBet.onclick = async () => {
 const loPrize = document.getElementById("lo-prize");
 loPrize.onclick = async () => {
 
-  if (!window.ethereum) {
+  if (typeof window.ethereum === 'undefined') {
     alert("No MetaMask detected");
     return;
   }
@@ -179,7 +180,7 @@ loPrize.onclick = async () => {
 const loGains = document.getElementById("lo-gains");
 loGains.onclick = async () => {
 
-  if (!window.ethereum) {
+  if (typeof window.ethereum === 'undefined') {
     alert("No MetaMask detected");
     return;
   }
