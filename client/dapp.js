@@ -59,6 +59,11 @@ async function getInfo() {
   var web3 = new Web3(window.ethereum)
   const networkId = await web3.eth.net.getId();
 
+  if (typeof lotjson.networks[networkId] === 'undefined') {
+    alert("contract not deployed on NetwordId " + networkId);
+    return;
+  }
+
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
 
@@ -117,6 +122,11 @@ loBet.onclick = async () => {
   var web3 = new Web3(window.ethereum)
   const networkId = await web3.eth.net.getId();
 
+  if (typeof lotjson.networks[networkId] === 'undefined') {
+    alert("contract not deployed on NetwordId " + networkId);
+    return;
+  }
+
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
 
@@ -143,6 +153,11 @@ loPrize.onclick = async () => {
 
   var web3 = new Web3(window.ethereum)
   const networkId = await web3.eth.net.getId();
+
+  if (typeof lotjson.networks[networkId] === 'undefined') {
+    alert("contract not deployed on NetwordId " + networkId);
+    return;
+  }
 
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
@@ -171,6 +186,11 @@ loGains.onclick = async () => {
 
   var web3 = new Web3(window.ethereum)
   const networkId = await web3.eth.net.getId();
+
+  if (typeof lotjson.networks[networkId] === 'undefined') {
+    alert("contract not deployed on NetwordId " + networkId);
+    return;
+  }
 
   const lottery = new web3.eth.Contract
     (lotjson.abi, lotjson.networks[networkId].address);
