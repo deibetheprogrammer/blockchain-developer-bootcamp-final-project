@@ -61,7 +61,7 @@ async function getInfo() {
   const networkId = await web3.eth.net.getId();
 
   if (typeof lotjson.networks[networkId] === 'undefined') {
-    alert("contract not deployed on NetwordId " + networkId);
+    alert("contract not deployed on NetwortId " + networkId + ", please connect to Rinkeby testnet");
     return;
   }
 
