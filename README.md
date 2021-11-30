@@ -36,7 +36,7 @@ https://deibetheprogrammer.github.io
 - Your local copy will only have the addresses of contracts that you deploy, so unless you deploy the `Lottery` contract on Rinkeby testnet or add the network and address on `Lottery.json`, the local copy of the frontend will only know the address of the local testnet.
 ## Screencast link
 
-
+https://youtu.be/8TmQwLZ83vk
 
 ## Project description
 
