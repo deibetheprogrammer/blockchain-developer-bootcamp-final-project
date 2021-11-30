@@ -63,3 +63,7 @@ This is a simple lottery that allows two users to place their bets. The contract
 
 1. .rinkeby which contains the Infura project's URL
 2. .secret which contains a wallet's mneumonics, this wallet has to have sufficient test ETH on it's first account.
+
+## Public Ethereum Account For Certification
+
+0x5251A7e5dcEeE75cEC3233848c772FAe03588357
