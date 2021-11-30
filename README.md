@@ -33,6 +33,7 @@ https://deibetheprogrammer.github.io
 - `npm start`
 - Open `http://127.0.0.1:8080`
 - Due to the use of Oracles, not all functionality can be tested on a local testnet
+- Your local copy will only have the addresses of contracts that you deploy, so unless you deploy the `Lottery` contract on Rinkeby testnet or add the network and address on `Lottery.json`, the local copy of the frontend will only know the address of the local testnet.
 ## Screencast link
 
 
